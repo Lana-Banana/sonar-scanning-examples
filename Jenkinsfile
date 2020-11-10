@@ -8,7 +8,7 @@ pipeline {
                 maven 'M3'
             }
             steps {
-                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonartoken2') {
+                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar', envOnly: true) {
                     sh '''
                         chmod +x -R ${env.WORKSPACE}
                         env
