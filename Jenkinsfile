@@ -11,6 +11,8 @@ pipeline {
                 withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar') {
                     sh '''
                         chmod +x -R ${env.WORKSPACE}
+                        env
+                        
                         echo ${SONAR_CONFIG_NAME}
                         echo ${SONAR_HOST_URL}
                         echo ${SONAR_AUTH_TOKEN}
