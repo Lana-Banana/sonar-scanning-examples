@@ -8,7 +8,7 @@ pipeline {
                 maven 'M3'
             }
             steps {
-                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar') {
+                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-token') {
                     sh '''
                         echo ${env.SONAR_CONFIG_NAME}
                         echo ${env.SONAR_HOST_URL}
