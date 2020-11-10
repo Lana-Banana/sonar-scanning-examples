@@ -4,9 +4,9 @@ pipeline {
      }
     stages {
         stage('Sonar Scan') {
-            // tools {
-            //     maven 'M3'
-            // }
+            tools {
+                maven 'M3'
+            }
             steps {
                 withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar', envOnly: true) {
                     sh '''
