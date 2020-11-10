@@ -10,11 +10,10 @@ pipeline {
             steps {
                 withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar', envOnly: true) {
                     sh '''
-                        env
-                        pwd
-                        ls -al
-                        cd ./sonarqube-scanner-maven/maven-basic/
-                        // mvn clean verify sonar:sonar
+                        echo ${env.SONAR_HOST_URL}
+                        echo ${env.SONAR_CONFIG_NAME}
+                        echo ${env.SONAR_AUTH_TOKEN}
+                        echo ${env.SONAR_MAVEN_GOAL}
                     '''
                 }
             }
