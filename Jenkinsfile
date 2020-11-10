@@ -14,6 +14,9 @@ pipeline {
                         echo ${SONAR_CONFIG_NAME}
                         echo ${SONAR_AUTH_TOKEN}
                         echo ${SONAR_MAVEN_GOAL}
+                        
+                        cd ./sonarqube-scanner-maven/maven-basic/
+                        mvn clean verify sonar:sonar
                     '''
                 }
             }
