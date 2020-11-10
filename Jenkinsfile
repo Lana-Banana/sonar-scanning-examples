@@ -8,14 +8,14 @@ pipeline {
                 maven 'M3'
             }
             steps {
-                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar') {
+                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-token') {
                     sh '''
                         chmod +x -R ${env.WORKSPACE}
                         env
                         
-                        echo ${SONAR_CONFIG_NAME}
-                        echo ${SONAR_HOST_URL}
-                        echo ${SONAR_AUTH_TOKEN}
+                        echo ${env.SONAR_CONFIG_NAME}
+                        echo ${env.SONAR_HOST_URL}
+                        echo ${env.SONAR_AUTH_TOKEN}
                         
                         pwd
                         ls -al
